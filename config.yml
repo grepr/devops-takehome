@@ -1,0 +1,8 @@
+---
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+
+logging:
+  level: INFO
