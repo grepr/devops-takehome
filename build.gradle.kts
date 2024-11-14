@@ -29,3 +29,7 @@ tasks.jar {
         )
     }
 }
+
+tasks.build {
+    dependsOn(tasks.shadowJar)
+}
