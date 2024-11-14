@@ -4,7 +4,13 @@ We have a simple REST application written in Java that we would like to deploy t
 to complete this assignment.
 
 # Assignment
-Dockerize the application and create a helm chart for it.  Set up CDKTF to deploy the helm chart to an EKS cluster.
+Dockerize the application and create a helm chart for it.  Set up CDKTF to deploy the helm chart to an EKS cluster.  Set up Github action to perform the CDKTF deployment.
+
+# Requirements
+- The application should run as a pod on an EKS cluster.
+- The application should be reachable from the internet.
+- Application configuration updates should not require a rebuild of the application.
+- Merges into the main branch should trigger a CDKTF deployment.
 
 # Deliverables
 - A PR containing the code to achieve the stated assignment. (Please fork this repository and submit a PR with your changes.)
