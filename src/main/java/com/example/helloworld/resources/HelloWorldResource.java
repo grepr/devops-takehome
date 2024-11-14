@@ -2,6 +2,7 @@ package com.example.helloworld.resources;
 
 import com.codahale.metrics.annotation.Metered;
 import com.codahale.metrics.annotation.Timed;
+import com.example.helloworld.HelloWorldConfiguration;
 import com.example.helloworld.api.Saying;
 import io.dropwizard.jersey.caching.CacheControl;
 import jakarta.ws.rs.GET;
@@ -23,14 +24,16 @@ public class HelloWorldResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldResource.class);
 
     private final AtomicLong counter;
+    private final HelloWorldConfiguration configuration;
 
-    public HelloWorldResource() {
+    public HelloWorldResource(HelloWorldConfiguration configuration) {
         this.counter = new AtomicLong();
+        this.configuration = configuration;
     }
 
     @GET
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
     public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        return new Saying(counter.incrementAndGet(), name.orElse("Stranger"));
+        return new Saying(counter.incrementAndGet(), name.orElse(configuration.getContent()));
     }
 }
