@@ -1,0 +1,10 @@
+---
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+
+content: Stranger
+
+logging:
+  level: INFO
